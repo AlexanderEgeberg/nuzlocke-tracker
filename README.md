@@ -2,6 +2,9 @@
 
 _Live Example: <https://vite-react-example.vercel.app>_
 
+Trello: <https://trello.com/w/nuzlocketracker1>
+Figma: <https://www.figma.com/files/team/1303046367742188741/project/271313616/Nuzlocke-Tracker?fuid=890935191513048297>
+
 This project is a tracker for the Nuzlocke challenge in Pokemon games.
 Currently it is a work in progress.
 With focus on gen 1 only.
@@ -117,7 +120,7 @@ For now we're using localstorage
 - Github Actions
 - Github Projects
 - Trello
-- Notion
+- Notion or Github wiki - TODO
 
 ## Deploy Your Own
 

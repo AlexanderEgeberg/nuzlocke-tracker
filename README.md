@@ -2,11 +2,16 @@
 
 _Live Example: <https://vite-react-example.vercel.app>_
 
+Trello: <https://trello.com/w/nuzlocketracker1>
+Figma: <https://www.figma.com/files/team/1303046367742188741/project/271313616/Nuzlocke-Tracker?fuid=890935191513048297>
+
 This project is a tracker for the Nuzlocke challenge in Pokemon games.
 Currently it is a work in progress.
 With focus on gen 1 only.
 
 ## Getting started
+
+TODO
 
 ## Description
 
@@ -30,43 +35,55 @@ The main rules are:
 
 ## Tech Stack
 
-- SPA
+This project is a SPA using the following technologies:
+
+### Frontend
+
 - React
-- Typescript
 - Vite
-- React Router
+
+### Routing
+
+- Tanstack Router
 
 ### State Management
 
 - Zustand
-- React Query
+- Tanstack Query
+
+### Types
+
+- TypeScript
+- Zod
 
 ### UI
 
-- Shadcn
-- Headless UI
-- Heroicons
-- React Icons
-- React Toastify
-- React Aria
-- React Hook form maybe
-- TailwindCSS
+- TailwindCSS [x]
+- TailwindUI - To consider
+- Heroicons [X]
+- Headless UI [X]
+- Shadcn - To consider
+- React Icons - To consider
+- React Toastify - To consider
+- React Aria - To consider
+- React Hook form - To consider
 
 ### Linting
 
 - ESlint
-- Prettier
+- Prettier - To consider
 
 ### Testing
 
-- Vitest
-- Playwright
+- Vitest - TODO
+- Playwright - TODO
 
 ### Automation
 
-- Github Actions
-- Husky
-- Git Hooks
+- Github Actions - TODO
+- Husky - TODO
+- Git Hooks - TODO
+- Auto deploy (vercel) - TODO
 
 ### Architecture
 
@@ -82,15 +99,15 @@ The main rules are:
 
 For now we're using localstorage
 
-### External APIs
-
-- Pokemon API - TODO find a good one
-
 - Firebase
 - Node
 - Express
 - Prisma
 - Postgres
+
+### External APIs
+
+- Pokemon API - TODO find a good one
 
 ### Hosting
 
@@ -103,7 +120,7 @@ For now we're using localstorage
 - Github Actions
 - Github Projects
 - Trello
-- Notion
+- Notion or Github wiki - TODO
 
 ## Deploy Your Own
 

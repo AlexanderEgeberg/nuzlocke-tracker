@@ -2,6 +2,8 @@ import PokemonTeam from "@/components/PokemonTeam";
 import { SiPokemon } from "react-icons/si";
 import { GrPowerReset } from "react-icons/gr";
 import { IoSave } from "react-icons/io5";
+import { NavLink, useLocation } from "react-router-dom";
+import classNames from "classnames";
 
 const Header = () => {
   return (
@@ -28,7 +30,7 @@ const LeftSection = () => {
       <SiPokemon size={80} className="text-yellow-300" />
       <span>Fire red</span>
       <GrPowerReset
-        className="cursor-pointer text-unfocused transition-transform duration-500 ease-linear hover:rotate-[360deg] hover:text-focused"
+        className="cursor-pointer text-unfocused transition-transform duration-500 ease-in-out hover:rotate-[360deg] hover:text-focused"
         size={24}
       />
       <IoSave
@@ -48,20 +50,52 @@ const CenterSection = () => {
 };
 
 const RightSection = () => {
+  const location = useLocation();
+
+  const menuList = [
+    {
+      name: "Game",
+      href: "/game",
+      to: "/game",
+    },
+    {
+      name: "Box",
+      href: "/game/box",
+      to: "/game/box",
+    },
+    {
+      name: "Grave",
+      href: "/game/grave",
+      to: "/game/grave",
+    },
+  ];
+
+  const activeIndex = menuList.findIndex((i) => i.href === location.pathname);
+
   return (
-    <section className="flex w-1/3 flex-none items-center justify-end gap-3">
-      {/* <span className="cursor-pointer text-unfocused hover:text-focused">
-        Darkmode toggle
-      </span> */}
-      <span className="cursor-pointer text-unfocused hover:text-focused">
-        Game
-      </span>
-      <span className="cursor-pointer text-unfocused hover:text-focused">
-        Box
-      </span>
-      <span className="cursor-pointer text-unfocused hover:text-focused">
-        Grave
-      </span>
+    <section>
+      <nav className="flex w-1/3 flex-none items-center justify-end gap-3">
+        {menuList.map((item, index) => (
+          <NavLink
+            key={item.name}
+            to={item.to}
+            className={classNames({
+              "cursor-pointer hover:text-focused": true,
+              "text-unfocused": activeIndex !== index,
+              "text-focused": activeIndex === index,
+              "w-max": true,
+            })}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </nav>
+      <div className="relative h-4 w-1/3">
+        <div
+          className="relative right-full h-0.5 w-full bg-yellow-300 transition-all duration-200 ease-in"
+          style={{ transform: `translate(${(activeIndex - 1) * 100}%)` }}
+        ></div>
+      </div>
     </section>
   );
 };

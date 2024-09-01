@@ -44,7 +44,7 @@ This project is a SPA using the following technologies:
 
 ### Routing
 
-- Tanstack Router
+- React Router
 
 ### State Management
 

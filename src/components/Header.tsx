@@ -80,12 +80,13 @@ const RightSection = () => {
             <NavLink
               key={item.name}
               to={item.to}
-              className={classNames({
-                "cursor-pointer hover:text-focused": true,
-                "text-unfocused": activeIndex !== index,
-                "text-focused": activeIndex === index,
-                "w-full h-12 items-center justify-center flex z-10": true,
-              })}
+              className={classNames(
+                "cursor-pointer hover:text-focused w-full h-12 items-center justify-center flex z-10",
+                {
+                  "text-unfocused": activeIndex !== index,
+                  "text-focused": activeIndex === index,
+                }
+              )}
             >
               {item.name}
             </NavLink>
@@ -101,7 +102,7 @@ const RightSection = () => {
 const Cover = ({ activeIndex }: { activeIndex: number }) => {
   return (
     <div
-      className="absolute  left-0 z-0 h-full w-1/3 bg-black opacity-50 shadow-lg transition-all duration-300 ease-out"
+      className="absolute left-0 z-0 h-full w-1/3 bg-black opacity-50 shadow-lg transition-all duration-300 ease-out"
       style={{ transform: `translate(${activeIndex * 100}%)` }}
     />
   );

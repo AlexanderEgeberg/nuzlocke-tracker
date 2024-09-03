@@ -15,6 +15,7 @@ export default {
       colors: {
         focused: colors.gray[200],
         unfocused: colors.gray[500],
+        background: "#242424",
       },
     },
   },

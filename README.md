@@ -1,17 +1,20 @@
 # Nuzlocke tracker
-
-_Live Example: <https://vite-react-example.vercel.app>_
-
-Trello: <https://trello.com/w/nuzlocketracker1>
-Figma: <https://www.figma.com/files/team/1303046367742188741/project/271313616/Nuzlocke-Tracker?fuid=890935191513048297>
-
-This project is a tracker for the Nuzlocke challenge in Pokemon games.
+This project is a tracker for the famous Pokemon Nuzlocke challenge.
 Currently it is a work in progress.
-With focus on gen 1 only.
+With focus on gen 3 only (FireRed/LeafGreen).
+
+[Production](https://nuzlocke-tracker-one.vercel.app/)
+[Staging](https://nuzlocke-tracker-one-staging.vercel.app/)
+
+[Trello](https://trello.com/w/nuzlocketracker1)
+[Figma](https://www.figma.com/files/team/1303046367742188741/project/271313616/Nuzlocke-Tracker?fuid=890935191513048297)
+
 
 ## Getting started
 
-TODO
+Clone project
+Yarn install
+Yarn dev
 
 ## Description
 
@@ -39,7 +42,7 @@ This project is a SPA using the following technologies:
 
 ### Frontend
 
-- React
+- React 18
 - Vite
 
 ### Routing
@@ -121,24 +124,3 @@ For now we're using localstorage
 - Github Projects
 - Trello
 - Notion or Github wiki - TODO
-
-## Deploy Your Own
-
-Deploy your own Vite project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
-TODO
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-vercel
-```
-
-## Next Steps
-
-- [ ] Add git hooks (husky) for linting and testing
-- [ ] Add CI/CD with Github Actions (linting, testing, deploy)
-- [ ] Add Firebase for authentication (with backend done)

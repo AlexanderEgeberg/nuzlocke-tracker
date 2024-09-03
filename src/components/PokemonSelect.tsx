@@ -28,10 +28,11 @@ const PokemonSelect = ({ pokemon }: { pokemon?: Pokemon }) => {
   );
 
   return (
-    <div className="z-10">
+    <div>
       <Combobox<Pokemon | null>
         immediate
         value={selected}
+        onClose={() => setQuery("")}
         onChange={(value: Pokemon | null) => {
           if (value) {
             setSelected(value);
@@ -39,8 +40,8 @@ const PokemonSelect = ({ pokemon }: { pokemon?: Pokemon }) => {
           }
         }}
       >
-        <div className="relative z-20">
-          <div className="absolute -left-1 top-1/2 size-12 w-full -translate-y-1/2 pl-[1.35rem] ">
+        <div className="relative">
+          <div className="absolute -left-1 top-1/2 -z-10 size-12 w-full -translate-y-1/2 pl-[1.35rem] ">
             {selected && <PokemonIcon id={selected.id} />}
           </div>
           <ComboboxInput
@@ -60,7 +61,8 @@ const PokemonSelect = ({ pokemon }: { pokemon?: Pokemon }) => {
           anchor="bottom"
           transition
           className={classNames(
-            "w-[var(--input-width)] rounded-xl border border-white/5 bg-white/5 p-1 [--anchor-gap:var(--spacing-1)] empty:invisible",
+            "z-30",
+            "w-[var(--input-width)] rounded-xl border border-white/5 bg-background p-1 [--anchor-gap:var(--spacing-1)] empty:invisible",
             "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0"
           )}
         >
@@ -84,7 +86,6 @@ const PokemonIcon = ({ id }: { id: number }) => {
   return (
     <img
       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-      //src={`https://img.pokemondb.net/sprites/black-white/normal/${pokemon.name.toLocaleLowerCase()}.png`}
       alt="Pokemon Logo"
       className="size-12"
     />

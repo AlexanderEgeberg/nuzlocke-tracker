@@ -1,6 +1,6 @@
 import PokemonNickname from "@/components/PokemonNickname";
 import PokemonSelect from "@/components/PokemonSelect";
-import PokemonStatus from "@/components/PokemonStatus";
+import PokemonStatus, { PokemonStatusType } from "@/components/PokemonStatus";
 import { pokemonRoutes } from "@/utils/constants";
 import { Button } from "@headlessui/react";
 import { useMemo, useState } from "react";
@@ -10,7 +10,7 @@ export type Pokemon = {
   routeId: number;
   name: string;
   nickname: string;
-  status: "Alive" | "Dead";
+  status: PokemonStatusType;
 };
 
 type Route = (typeof pokemonRoutes)[number];
@@ -25,14 +25,14 @@ const Bulbasaur: Pokemon = {
   routeId: 1,
   name: "Bulbasaur",
   nickname: "Nicky",
-  status: "Alive",
+  status: "Captured",
 };
 const Charmander: Pokemon = {
   id: 4,
   routeId: 1,
   name: "Charmander",
   nickname: "Charchar",
-  status: "Alive",
+  status: "Captured",
 };
 const Game = () => {
   const [box, setBox] = useState<Pokemon[]>([Charmander]);
@@ -72,8 +72,9 @@ const Row = ({ gameState }: { gameState: GameState }) => {
         value={gameState.pokemon?.nickname ?? gameState.pokemon?.name}
       />
 
-      <Button>Add To team</Button>
-      <Button>Kill</Button>
+      <Button className="rounded-lg border-none bg-white/5 px-8 py-1.5 text-sm/6 text-white">
+        Add To team
+      </Button>
     </div>
   );
 };

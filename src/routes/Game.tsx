@@ -70,7 +70,6 @@ const Row = ({ gameState }: { gameState: GameState }) => {
       <PokemonStatus />
       <PokemonNickname
         value={gameState.pokemon?.nickname ?? gameState.pokemon?.name}
-        onChange={(e) => console.log(e)}
       />
 
       <Button>Add To team</Button>

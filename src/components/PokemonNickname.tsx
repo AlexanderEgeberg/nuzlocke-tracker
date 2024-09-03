@@ -4,9 +4,9 @@ const PokemonNickname = ({
   value,
 }: {
   value?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
-  return <Input placeholder="Nickname" />;
+  return <Input placeholder="Nickname" defaultValue={value} />;
 };
 
 export default PokemonNickname;

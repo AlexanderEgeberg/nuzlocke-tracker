@@ -82,10 +82,7 @@ const RightSection = () => {
               to={item.to}
               className={classNames(
                 "cursor-pointer hover:text-focused w-full h-12 items-center justify-center flex z-10",
-                {
-                  "text-unfocused": activeIndex !== index,
-                  "text-focused": activeIndex === index,
-                }
+                activeIndex === index ? "text-focused" : "text-unfocused"
               )}
             >
               {item.name}

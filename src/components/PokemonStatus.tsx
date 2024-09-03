@@ -5,8 +5,8 @@ import {
   ListboxOptions,
   ListboxSelectedOption,
 } from "@headlessui/react";
-import { Fragment, useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
+import classNames from "classnames";
 
 export type PokemonStatusType =
   | "Captured"
@@ -28,21 +28,11 @@ const pokemonStatuses: PokemonStatusType[] = [
 ];
 
 function PokemonStatus() {
-  const [selectedStatus, setSelectedStatus] = useState();
-
   return (
     <div className="relative">
-      <MyListbox
-        value={selectedStatus}
-        onChange={setSelectedStatus}
-        placeholder="Status"
-      >
+      <MyListbox placeholder="Status">
         {pokemonStatuses.map((status) => (
-          <MyListboxOption
-            key={status}
-            value={status}
-            className="border bg-black data-[focus]:bg-blue-100 data-[hover]:shadow"
-          >
+          <MyListboxOption key={status} value={status}>
             {status}
           </MyListboxOption>
         ))}
@@ -53,7 +43,14 @@ function PokemonStatus() {
 }
 
 //TODO
-function MyListbox({ placeholder, children, ...props }) {
+function MyListbox({
+  placeholder,
+  children,
+  ...props
+}: {
+  placeholder: string;
+  children: React.ReactNode;
+}) {
   return (
     <Listbox {...props}>
       <ListboxButton className="rounded-lg border-none bg-white/5 px-8 py-1.5 text-sm/6 text-white ">
@@ -62,21 +59,33 @@ function MyListbox({ placeholder, children, ...props }) {
           placeholder={<span className="opacity-50">{placeholder}</span>}
         />
       </ListboxButton>
-      <ListboxOptions anchor="bottom">{children}</ListboxOptions>
+      <ListboxOptions
+        className={classNames(
+          "z-30",
+          "w-[var(--input-width)] rounded-xl border border-white/5 bg-background p-1 [--anchor-gap:var(--spacing-1)] empty:invisible",
+          "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0"
+        )}
+        anchor="bottom"
+      >
+        {children}
+      </ListboxOptions>
     </Listbox>
   );
 }
 
-function MyListboxOption({ children, ...props }) {
+function MyListboxOption({
+  children,
+  ...props
+}: {
+  value: PokemonStatusType;
+  children: React.ReactNode;
+}) {
   return (
-    <ListboxOption as={Fragment} {...props}>
-      {({ selectedOption }) => {
-        return selectedOption ? (
-          children
-        ) : (
-          <div className="data-[focus]:bg-blue-100">{children}</div>
-        );
-      }}
+    <ListboxOption
+      {...props}
+      className=" data-[focus]:bg-white/5 data-[hover]:shadow"
+    >
+      <div className="data-[focus]:bg-blue-100">{children}</div>
     </ListboxOption>
   );
 }

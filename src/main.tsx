@@ -4,6 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Root from "./routes/root";
 import App from "./App";
+import Game from "./routes/Game";
+import Box from "./routes/Box";
+import Grave from "./routes/Grave";
 
 const router = createBrowserRouter([
   {
@@ -16,15 +19,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <div>Game</div>,
+        element: <Game />,
       },
       {
         path: "box",
-        element: <div>Box</div>,
+        element: <Box />,
       },
       {
         path: "grave",
-        element: <div>Grave</div>,
+        element: <Grave />,
       },
     ],
   },

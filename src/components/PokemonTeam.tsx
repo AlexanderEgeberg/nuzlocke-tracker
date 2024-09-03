@@ -5,14 +5,16 @@ import { ReactNode } from "react";
 import classNames from "classnames";
 
 const PokemonTeam: React.FC = () => {
+  const team = Array.from({ length: 6 }, (_, i) => i);
+
   return (
     <>
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
-      <PokemonBall icon={<MdOutlineCatchingPokemon size={32} />} />
+      {team.map((_, i) => {
+        return (
+          <PokeBall key={i} icon={<MdOutlineCatchingPokemon size={32} />} />
+        );
+      })}
+
       <MdOutlineClear
         className={classNames(
           "size-4 cursor-pointer text-unfocused duration-100 ease-linear hover:scale-150 hover:text-focused hover:transition-all"
@@ -22,7 +24,7 @@ const PokemonTeam: React.FC = () => {
   );
 };
 
-const PokemonBall: React.FC<{ icon: ReactNode }> = ({ icon }) => {
+const PokeBall: React.FC<{ icon: ReactNode }> = ({ icon }) => {
   return (
     <div
       className={classNames(
@@ -36,7 +38,8 @@ const PokemonBall: React.FC<{ icon: ReactNode }> = ({ icon }) => {
       <span
         className={classNames(
           "group-hover:rotate-[180deg] transition-all duration-300",
-          "group-hover:bg-red-700 rounded-full"
+          "group-hover:bg-red-700 rounded-full relativ box",
+          "group-hover:shadow-[inset_0_0_0_3px_black]"
         )}
       >
         {icon}

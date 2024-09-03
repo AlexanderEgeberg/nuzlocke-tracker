@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Root = () => {
+const Box = () => {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="rounded-lg border-4 border-yellow-300 p-8 text-center">
@@ -15,4 +15,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default Box;
